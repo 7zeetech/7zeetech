@@ -2,18 +2,50 @@
 	
 	"use strict";
 
-	// Header Type = Fixed
-  $(window).scroll(function() {
-    var scroll = $(window).scrollTop();
-    var box = $('.header-text').height();
-    var header = $('header').height();
+  $(document).ready(function() {
+    // Initial setup: Show img_1 and hide img_2
+    $('.img_1').show(); // Show the first logo initially
+    $('.img_2').hide();  // Hide the second logo initially
 
-    if (scroll >= box - header) {
-      $("header").addClass("background-header");
-    } else {
-      $("header").removeClass("background-header");
-    }
-  });
+    // Header Type = Fixed
+    $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+        var box = $('.header-text').height();
+        var header = $('header').height();
+
+        // Change header background
+        if (scroll >= box - header) {
+            $("header").addClass("background-header");
+        } else {
+            $("header").removeClass("background-header");
+        }
+
+        // Change nav images based on scroll position and screen width
+        const navImage1 = $('.img_1'); // Original logo
+        const navImage2 = $('.img_2');   // Alternative logo
+
+        if ($(window).width() <= 640) {
+            // For screens with max-width 640px
+            
+            if (scroll > 50) {
+              navImage1.hide(); // Hide the first logo
+                navImage2.show(); // Show the second logo
+            } else {
+              navImage1.hide(); // Hide the first logo
+                navImage2.show(); // Show the second logo
+             
+            }
+        } 
+        if (scroll > 50) {
+          navImage1.hide(); // Hide the first logo
+          navImage2.show(); // Show the second logo
+        } else {
+          navImage1.show(); // Show the first logo
+          navImage2.hide(); // Hide the second logo
+        }
+    });
+});
+
 
 
 	$('.owl-our-team').owlCarousel({
@@ -123,7 +155,7 @@
   function mobileNav() {
     var width = $(window).width();
     $('.submenu').on('click', function() {
-      if(width < 767) {
+      if(width < 850) {
         $('.submenu ul').removeClass('active');
         $(this).find('ul').toggleClass('active');
       }
