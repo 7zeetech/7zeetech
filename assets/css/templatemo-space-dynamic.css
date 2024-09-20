@@ -1056,7 +1056,7 @@ Services Style
 
 .our-services .section-heading p {
   margin-top: 30px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 .our-services .progress-skill-bar {
@@ -1148,7 +1148,7 @@ Portfolio
 }
 
 .our-portfolio .item:hover .hidden-content {
-  top: -100px;
+  top: -220px;
   opacity: 1;
   visibility: visible;
 }
@@ -1223,6 +1223,7 @@ Blog
   position: relative;
   margin-top: 80px;
   padding-top: 120px;
+  margin-bottom: 70px;
 }
 
 .our-blog .section-heading h2 {
